@@ -1,0 +1,23 @@
+{
+  "name": "npm-module",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntonAbramov/npm-module.git"
+  },
+  "author": "Anton Abramov <antonabramov1990@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AntonAbramov/npm-module/issues"
+  },
+  "homepage": "https://github.com/AntonAbramov/npm-module#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
+  }
+}
