@@ -5,11 +5,11 @@ A small library that adds commas to numbers
 
 ## Installation
 
-  `npm install @AntonAbramov/npm-module`
+  `npm install antonabramov-test-module`
 
 ## Usage
 
-    var numFormatter = require('@AntonAbramov/npm-module');
+    var numFormatter = require('antonabramov-test-module');
 
     var formattedNum = numFormatter(35666);
   
