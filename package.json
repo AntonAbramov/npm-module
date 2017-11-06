@@ -1,8 +1,8 @@
 {
   "name": "antonabramov-test-module",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Npm-module =========",
+  "main": "dist/bundle.js",
   "scripts": {
     "test": "mocha --reporter spec"
   },
@@ -18,6 +18,14 @@
   "homepage": "https://github.com/AntonAbramov/npm-module#readme",
   "devDependencies": {
     "chai": "^4.1.2",
-    "mocha": "^4.0.1"
-  }
+    "css-loader": "^0.28.7",
+    "mocha": "^4.0.1",
+    "style-loader": "^0.19.0",
+    "webpack": "^3.8.1"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "keywords": []
 }
