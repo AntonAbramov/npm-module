@@ -1,5 +1,4 @@
 //http://w3c.github.io/webcomponents/spec/custom/#custom-elements-autonomous-example
-import style from '../css/style.css';
 'use strict';
 
 
@@ -243,7 +242,7 @@ class HeaderAkelius extends HTMLElement {
     }
   </style>`;
     let template = `
-    <header id="header" class="header col-12">
+    <header id="header" class="header">
       <section class="row header__top">
         <div class="col-12 col-md-3"><h1 class="logo">Intranet</h1></div>
         <div class="col-12 col-md-9">
@@ -292,10 +291,6 @@ class HeaderAkelius extends HTMLElement {
         </div>
       </section>
     </header>
-
-    /*<header>
-        <div>header link=  ${this.url}</div>
-    </header>*/
     `;
 
     this.shadow.innerHTML = projectStyles + template;
