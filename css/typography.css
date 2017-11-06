@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'icons';
+  src: url('/npm-module/css/MaterialIcons-Regular.eot');
+  src: url('/npm-module/css/MaterialIcons-Regular.eot?#iefix') format('embedded-opentype'),
+  url('/npm-module/css/MaterialIcons-Regular.woff2') format('woff2'),
+  url('/npm-module/css/MaterialIcons-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: Verdana,Arial,sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+.material-icons {
+  font-family: icons;
+}
