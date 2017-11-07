@@ -1,4 +1,5 @@
 // import style from '../css/style.css';
+import './authentication';
 //http://w3c.github.io/webcomponents/spec/custom/#custom-elements-autonomous-example
 'use strict';
 
@@ -25,14 +26,8 @@ export default (function(){
 class HeaderAkelius extends HTMLElement {
   constructor() {
     super();
-    const x = 'hi';
-    console.log(x);
     this.shadow = this.createShadowRoot();
     this._url = '';
-    let that = this;
-    this.addEventListener('click', () => {
-      console.log('clicked');
-    })
   }
 
   get url() {
@@ -54,9 +49,8 @@ class HeaderAkelius extends HTMLElement {
     }
   }
 
-
-
   connectedCallback() {
+    const buttonText = window.isAuthenticated() ? 'Log out' : 'Login';
     let projectStyles = `
     <style>
 
@@ -269,14 +263,10 @@ class HeaderAkelius extends HTMLElement {
           </div>
         </div>
         <div class="col-2 col-sm-1">
-          <button
-            *ngIf="!auth.isAuthenticated()"
-            (click)="auth.login()"
-            class="material-icons header__icon">settings</button>
-          <div *ngIf="auth.isAuthenticated()" class="header__popover">
-            <a (click)="togglePopover($event)" href="#login" class="material-icons header__icon">settings</a>
+          <div class="header__popover">
+            <a id="toggle-auth-block" href="#auth-block" class="material-icons header__icon">settings</a>
             <div
-              id="login"
+              id="auth-block"
               class="popover__item"
               [ngClass]="{
               'is-open' : isPopoverOpen == true
@@ -285,7 +275,7 @@ class HeaderAkelius extends HTMLElement {
               <div>
                 <i class="material-icons material-icons--input">input</i>
                 <span></span>
-                <button (click)="auth.logout()">Log out</button>
+                <button id="auth">${buttonText}</button>
               </div>
             </div>
           </div>
@@ -293,11 +283,31 @@ class HeaderAkelius extends HTMLElement {
       </section>
     </header>
     `;
-
     this.shadow.innerHTML = projectStyles + template;
+
+    this.shadow.querySelector('#auth').addEventListener('click', this.authenticate.bind(this));
+    this.shadow.querySelector('#toggle-auth-block').addEventListener('click', this.toggleAuthBox.bind(this));
   }
 
+  toggleAuthBox(e) {
+    e.preventDefault();
+    this.shadow.querySelector('#auth-block').className = 'is-open popover__item';
+  }
 
+  authenticate(e) {
+    e.preventDefault();
+    window.isAuthenticated() ? this.logout() : this.login()
+  }
+
+  login(e) {
+    window.webAuth.authorize();
+    this.shadow.querySelector('#auth').innerText = 'Log out';
+  }
+
+  logout(e) {
+    window.authOut();
+    this.shadow.querySelector('#auth').innerText = 'Login';
+  }
 
 }
 

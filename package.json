@@ -26,6 +26,8 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "auth0-js": "^8.10.1"
+  },
   "keywords": []
 }
