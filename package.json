@@ -1,6 +1,6 @@
 {
   "name": "antonabramov-test-module",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Npm-module =========",
   "main": "dist/bundle.js",
   "scripts": {
