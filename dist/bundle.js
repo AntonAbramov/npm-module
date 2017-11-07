@@ -68,6 +68,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+// import style from '../css/style.css';
 //http://w3c.github.io/webcomponents/spec/custom/#custom-elements-autonomous-example
 
 

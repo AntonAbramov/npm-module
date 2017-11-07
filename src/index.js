@@ -1,3 +1,4 @@
+// import style from '../css/style.css';
 //http://w3c.github.io/webcomponents/spec/custom/#custom-elements-autonomous-example
 'use strict';
 
