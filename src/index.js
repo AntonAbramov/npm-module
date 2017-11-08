@@ -109,6 +109,8 @@ class HeaderAkelius extends HTMLElement {
       line-height: 44px;
       width: 30px;
       cursor: pointer;
+      color: #333;
+      text-decoration: none;
     }
     
     .header__mid {
@@ -156,8 +158,9 @@ class HeaderAkelius extends HTMLElement {
       min-width: 320px;
     }
     
-    .popover__item.is-open {
+    .header__popover--open .popover__item {
       opacity: 1;
+      display: block;
     }
     
     .popover__item:before {
@@ -286,12 +289,17 @@ class HeaderAkelius extends HTMLElement {
     this.shadow.innerHTML = projectStyles + template;
 
     this.shadow.querySelector('#auth').addEventListener('click', this.authenticate.bind(this));
-    this.shadow.querySelector('#toggle-auth-block').addEventListener('click', this.toggleAuthBox.bind(this));
+    const toggleBtn = this.shadow.querySelector('#toggle-auth-block');
+    toggleBtn.addEventListener('click', this.toggleAuthBox.bind(this));
+    toggleBtn.parentNode.addEventListener('mouseleave', ()=> {
+      toggleBtn.parentNode.classList.remove('header__popover--open');
+    })
   }
 
   toggleAuthBox(e) {
     e.preventDefault();
-    this.shadow.querySelector('#auth-block').className = 'is-open popover__item';
+    const parentEl = e.currentTarget.parentNode;
+    parentEl.classList.toggle('header__popover--open');
   }
 
   authenticate(e) {
